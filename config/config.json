@@ -1,0 +1,71 @@
+{
+    "script_config": {
+        "ha_enabled": "yes",
+        "pause_on_every_step": "no",
+        "display_results": "yes"
+    },
+    "controller": {
+        "Aviatrix_Robot_Says": "Please provide the controller IP and at least one cloud-account information below...",
+        "public_ip": "XXX.XXX.XXX.XXX",
+        "admin_password": "XXX",
+        "cloud_account": "XXX"
+    },
+    "transit_gateway": {
+        "Aviatrix_Robot_Says": "Transit Network -> Step 01: Create Transit Gateway",
+        "cloud_type": 1,
+        "region": "XXX",
+        "vpc_id": "XXX",
+        "public_subnet": "XXX",
+        "gateway_name": "XXX",
+        "gateway_size": "XXX",
+        "dns_server_ip": "8.8.8.8",
+        "tags": "XXX:XXX,XXX:XXX",
+        "ha_configuration": {
+          "Aviatrix_Robot_Says": "Transit Network -> Step 02: Enable Transit Gateway HA",
+          "ha_public_subnet": "XXX"
+        }
+    },
+    "vgw": {
+        "Aviatrix_Robot_Says": "Transit Network -> Step 03: Connect VGW to Transit Gateway",
+        "connection_name": "XXX",
+        "cloud_account": "XXX",
+        "region": "XXX",
+        "vpc_id": "XXX",
+        "vgw_id": "XXX",
+        "bgp_local_as_number": "XXX"
+    },
+    "spoke_gateways": [
+        {
+            "Aviatrix_Robot_Says": "Transit Network -> Step 04: Launch Spoke Gateway",
+            "gateway_name": "XXX",
+            "cloud_type": 1,
+            "region": "XXX",
+            "vpc_id": "XXX",
+            "public_subnet": "XXX",
+            "gateway_size": "XXX",
+            "dns_server_ip": "8.8.8.8",
+            "nat_enabled": "no",
+            "tags": "XXX:XXX,XXX:XXX",
+            "ha_configuration": {
+              "Aviatrix_Robot_Says": "Transit Network -> Step 05: Enable HA at Spoke Gateway",
+              "ha_public_subnet": "XXX"
+            }
+        },
+        {
+            "Aviatrix_Robot_Says": "Transit Network -> Step 04: Launch Spoke Gateway",
+            "gateway_name": "XXX",
+            "cloud_type": 1,
+            "region": "XXX",
+            "vpc_id": "XXX",
+            "public_subnet": "XXX",
+            "gateway_size": "XXX",
+            "dns_server_ip": "8.8.8.8",
+            "nat_enabled": "no",
+            "tags": "XXX:XXX,XXX:XXX",
+            "ha_configuration": {
+              "Aviatrix_Robot_Says": "Transit Network -> Step 05: Enable HA at Spoke Gateway",
+              "ha_public_subnet": "XXX"
+            }
+        }
+    ]
+}
