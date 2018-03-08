@@ -222,7 +222,8 @@ def connect_transit_gw_to_vgw(url=None, CID=None, connection_name=None,
 
 
 def create_spoke_gw(url=None, CID=None, account_name=None, cloud_type=None, region=None, vpc_id=None,
-                    public_subnet=None, gateway_name=None, gateway_size=None, dns_server_ip=None, tags=None):
+                    public_subnet=None, gateway_name=None, gateway_size=None,
+                    nat_enabled=None, dns_server_ip=None, tags=None):
     data = {
         "action": "create_spoke_gw",
         "CID": CID,
@@ -235,6 +236,8 @@ def create_spoke_gw(url=None, CID=None, account_name=None, cloud_type=None, regi
         "gw_size": gateway_size
     }
 
+    if nat_enabled is not None:
+        data["nat_enabled"] = nat_enabled
     if dns_server_ip is not None:
         data["dns_server"] = dns_server_ip
     if tags is not None:
